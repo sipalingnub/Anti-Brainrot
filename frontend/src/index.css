@@ -1,0 +1,115 @@
+/* 1. Import Font WAJIB di paling atas */
+@font-face {
+  font-family: 'Alagard';
+  src: url('./assets/alagard.ttf') format('truetype'); /* Pastikan path benar */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  image-rendering: pixelated; /* Agar semua gambar tajam/kotak-kotak */
+}
+
+/* Hapus background-image global dari sini */
+body {
+  @apply bg-rpg-bg text-rpg-text font-pixel;
+}
+
+@layer components {
+  /* TOMBOL RPG */
+  .btn-primary {
+    @apply bg-rpg-gold text-rpg-border border-2 border-rpg-border shadow-pixel 
+    uppercase tracking-widest font-bold py-2 px-6 
+    hover:translate-y-1 hover:shadow-pixel-active hover:bg-[#c9a570] 
+    active:translate-y-1 transition-all duration-75 rounded-none;
+  }
+  
+  .btn-secondary {
+    @apply bg-rpg-muted text-white border-2 border-rpg-border shadow-pixel
+    hover:translate-y-1 hover:shadow-pixel-active
+    transition-all duration-75 rounded-none;
+  }
+  
+  /* INPUT FIELD SEPERTI GULUNGAN/BATU */
+  .input-field {
+    @apply w-full px-4 py-3 bg-[#252038] text-rpg-text border-2 border-rpg-border 
+    focus:border-rpg-gold focus:outline-none shadow-pixel-sm rounded-none placeholder-gray-500;
+  }
+  
+  /* CARD UTAMA */
+  .card {
+    @apply bg-rpg-card border-4 border-rpg-border shadow-pixel p-6 relative overflow-hidden rounded-none;
+  }
+}
+
+@layer utilities {
+  /* EFEK CRT SCANLINE REVISI (LEBIH JELAS) */
+  .scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    /* Gradient garis putih tipis agar terlihat di background gelap */
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.06) 50%, 
+      rgba(0, 0, 0, 0.2) 50%
+    );
+    background-size: 100% 4px;
+    z-index: 50;
+    pointer-events: none;
+  }
+
+  /* EFEK FLICKER LAYAR (Kedip-kedip halus) */
+  .crt-flicker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.03);
+    opacity: 0;
+    z-index: 50;
+    pointer-events: none;
+    animation: flicker 0.15s infinite;
+  }
+
+  /* EFEK VIGNETTE (Pinggiran Gelap) */
+  .vignette {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle, rgba(0,0,0,0) 50%, rgba(0,0,0,0.7) 100%);
+    z-index: 50;
+    pointer-events: none;
+  }
+
+  /* ANIMASI MUNCUL DARI BAWAH */
+  .animate-fade-up {
+    animation: fadeUp 0.5s ease-out forwards;
+  }
+}
+
+/* Keyframes Flicker */
+@keyframes flicker {
+  0% { opacity: 0.05; }
+  50% { opacity: 0.02; }
+  100% { opacity: 0.05; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 6px 6px 0px 0px #0d0b14;
+}
