@@ -5,7 +5,6 @@
 > *"Ubah rasa malas menjadi XP. Level up di dunia nyata, bukan cuma di game."*
 
 ![Anti-Brainrot Dashboard](https://via.placeholder.com/800x400?text=Dashboard+Pixel+Art+RPG+Preview)
-*(Ganti link di atas dengan link gambar/screenshot dashboard kamu)*
 
 ---
 
