@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/authcontext'; // Import dari file yang baru dibuat di folder yang sama
 
 // Menggunakan placeholder image online untuk background sementara agar kode bisa berjalan di preview
-// Silakan ganti kembali dengan: import bgLogin from '../assets/1248273.png'; di kode lokal Anda
 const bgLogin = "https://images.unsplash.com/photo-1614726365723-498aa67c5f7b?q=80&w=1932&auto=format&fit=crop"; 
 
 const Login = () => {
